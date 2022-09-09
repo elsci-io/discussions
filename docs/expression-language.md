@@ -30,7 +30,7 @@ Every time you reference one of the columns you need to put its name into `col["
 | 2 <= 3                 |   true |                                                           |
 | 3 == 3                 |   true |                                                           |
 | 3 != 3                 |  false |                                                           |
-| "blank-01" ==* "blank" |   true |                                Deprecated, use ~ instead. |
+| ~"blank-01" ==* "blank"~|  true |                                 Deprecated, use ~ instead.|
 | "blank-01" ~ "blank"   |   true | Checks if string contains another string. Case-sensitive. |
 | "a" == "a" && 3 < 10   |   true |                                            `&&` means AND |
 | "a" == "b" \           |      \ |                                                    3 < 10 |  true    | `\|\|` means OR     |
