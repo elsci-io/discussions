@@ -28,12 +28,12 @@ Every time you reference one of the columns you need to put its name into `col["
 | 2 < 3                  |   true |                                                           |
 | 2 >= 3                 |  false |                                                           |
 | 2 <= 3                 |   true |                                                           |
-| 3 == 3                 |   true |                                                           |
-| 3 != 3                 |  false |                                                           |
-| ~"blank-01" ==* "blank"~|  true |                                 Deprecated, use ~ instead.|
+| 3 == 3                 |   true |                                          `==` means equal |
+| 3 != 3                 |  false |                                      `!=` means not equal |
+| ~"blank-01" ==* "blank"~|  true |                                 Deprecated, use ~ instead |
 | "blank-01" ~ "blank"   |   true | Checks if string contains another string. Case-sensitive. |
 | "a" == "a" && 3 < 10   |   true |                                            `&&` means AND |
-| "a" == "b" \           |      \ |                                                    3 < 10 |  true    | `\|\|` means OR     |
+| "a" == "b" \|\| 3 < 10 |  true  |                                           `\|\|` means OR |
 | "a" in ["a", "b"]      |   true |       `in` checks if any element in array matches the key |
 
 ### Conditional logic
