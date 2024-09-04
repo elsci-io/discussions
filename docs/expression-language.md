@@ -1,16 +1,31 @@
 Expression Language
 ----
 
-When creating Table visualizations you can add columns with custom expressions. E.g. if you wanted
-to calculate reactant conversion you could use:
+When creating Table visualizations you can add columns with custom expressions - you can do math, logical, string expressions. Every time you reference one of the columns you need to put its name into `col["col name"]`.
+
+# Common usages
+
+## Calculate a conversion
+
+Conversion as a ratio of reaction Product to the Limiting Reactant:
 
 ```
-Conversion = col["Product area"] / (col["Product area"] + col["Reactant area"])
+col["Product area"] / (col["Product area"] + col["Reactant area"])
 ```
 
-Every time you reference one of the columns you need to put its name into `col["col name"]`.
+Note, column names in quotes are just examples, you need to put your own column names.
 
-### Arithmetic
+## Compare two quantities
+
+Suppose you compare areas of two peaks, and you want to put "true" into the column if PeakA is bigger and "false" otherwise:
+
+```
+col["PeakA area"] > (col["PeakB area"]
+```
+
+# Language Specification
+
+## Arithmetic
 
 | Example      |  Result |
 |--------------|--------:|
@@ -20,7 +35,7 @@ Every time you reference one of the columns you need to put its name into `col["
 | 2 / 3        | 0.666.. |
 | 2 + (10 / 2) |       7 |
 
-### Logical
+## Logical
 
 | Example                | Result |                                               Explanation |
 |------------------------|-------:|----------------------------------------------------------:|
@@ -36,7 +51,7 @@ Every time you reference one of the columns you need to put its name into `col["
 | "a" == "b" \|\| 3 < 10 |  true  |                                           `\|\|` means OR |
 | "a" in ["a", "b"]      |   true |       `in` checks if any element in array matches the key |
 
-### Conditional logic
+## Conditional logic
 
 The ternary operator allows the result to depend on the condition and whether it evaluates to `true` or `false`:
 
